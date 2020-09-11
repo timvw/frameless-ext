@@ -93,27 +93,15 @@ sbt publishM2
 
 ## Release
 
-Make sure to have a ~/.sbt/1.0/sonatype.sbt with your credentials, eg:
-
-```scala
-credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", "timvw", "My very secret password")% 
-```
-
 ```bash
 sbt
-+clean ;+compile ;+test ;+package; +publishSigned ; sonatypeReleaseAll
-ci-release
++clean ;+compile ;+test ;ci-release
 ```
-
-export PGP_PASSPHRASE=""
-export LONGID=0x6E4CD7D2EAC83E19
-export PGP_SECRET=$(gpg --armor --export-secret-keys $LONGID | base64)
-export SONATYPE_USERNAME=timvw
-export SONATYPE_PASSWORD=Tvw12345
 
 Via travis-ci:
 
 ```bash
-git tag -a v1.0.3  -m v1.0.3
-git push origin v1.0.3
+v=v1.0.5
+git tag -a $v  -m $v
+git push origin $v
 ```
