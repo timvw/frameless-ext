@@ -5,6 +5,11 @@ lazy val supportedScalaVersions = List(scala212, scala211)
 ThisBuild / organization := "be.icteam"
 ThisBuild / name := "frameless-ext"
 
+ThisBuild / homepage := Some(url("https://github.com/timvw/frameless-ext"))
+ThisBuild / licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
+
+//usePgpKeyHex("0x6E4CD7D2EAC83E19")
+
 ThisBuild / javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 ThisBuild / scalaVersion := scala211
@@ -32,5 +37,3 @@ ThisBuild / libraryDependencies ++= List(
 ThisBuild / scalacOptions ++= Seq(
   "-language:experimental.macros"
 )
-
-ThisBuild / publishTo := sonatypePublishToBundle.value

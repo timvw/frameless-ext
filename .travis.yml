@@ -2,10 +2,6 @@ language: scala
 
 jdk: openjdk8
 
-scala:
-   - 2.11.12
-   - 2.12.12
-
 before_cache:
   - rm -fv $HOME/.ivy2/.sbt.ivy.lock
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
@@ -16,3 +12,22 @@ cache:
     - $HOME/.cache/coursier
     - $HOME/.ivy2/cache
     - $HOME/.sbt   
+
+before_install:
+  - git fetch --tags
+  
+stages:
+  - name: test
+  - name: release
+    if: ((branch = master AND type = push) OR (tag IS present)) AND NOT fork
+    
+jobs:
+  include:
+    # stage="test" if no stage is specified
+    - name: compile
+      script: sbt + compile
+    - name: formatting
+      script: ./bin/scalafmt --test
+    # run ci-release only if previous stages passed
+    - stage: release
+      script: sbt ci-release    
