@@ -102,4 +102,18 @@ credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.or
 ```bash
 sbt
 +clean ;+compile ;+test ;+package; +publishSigned ; sonatypeReleaseAll
+ci-release
+```
+
+export PGP_PASSPHRASE=""
+export LONGID=0x6E4CD7D2EAC83E19
+export PGP_SECRET=$(gpg --armor --export-secret-keys $LONGID | base64)
+export SONATYPE_USERNAME=timvw
+export SONATYPE_PASSWORD=Tvw12345
+
+Via travis-ci:
+
+```bash
+git tag -a v1.0.3  -m v1.0.3
+git push origin v1.0.3
 ```
