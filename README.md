@@ -90,3 +90,16 @@ Creating a development version:
 ```bash
 sbt publishM2
 ```
+
+## Release
+
+Make sure to have a ~/.sbt/1.0/sonatype.sbt with your credentials, eg:
+
+```scala
+credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", "timvw", "My very secret password")% 
+```
+
+```bash
+sbt
++clean ;+compile ;+test ;+package; +publishSigned ;sonatypeReleaseAll
+```
