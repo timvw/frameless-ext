@@ -19,3 +19,5 @@ publishTo := Some(
   else
     Opts.resolver.sonatypeStaging
 )
+
+usePgpKeyHex("0x6E4CD7D2EAC83E19")
