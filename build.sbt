@@ -1,9 +1,15 @@
+lazy val scala212 = "2.12.12"
+lazy val scala211 = "2.11.12"
+lazy val supportedScalaVersions = List(scala212, scala211)
+
 ThisBuild / organization := "be.icteam"
 ThisBuild / name := "frameless-ext"
 
 ThisBuild / javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
-ThisBuild / scalaVersion := "2.11.12"
+ThisBuild / scalaVersion := scala211
+
+ThisBuild / crossScalaVersions := supportedScalaVersions
 
 ThisBuild / libraryDependencies ++= List(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value
