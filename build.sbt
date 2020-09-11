@@ -32,3 +32,5 @@ ThisBuild / libraryDependencies ++= List(
 ThisBuild / scalacOptions ++= Seq(
   "-language:experimental.macros"
 )
+
+ThisBuild / publishTo := sonatypePublishToBundle.value
