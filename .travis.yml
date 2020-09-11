@@ -4,6 +4,7 @@ jdk: openjdk8
 
 scala:
    - 2.11.12
+   - 2.12.12
 
 before_cache:
   - rm -fv $HOME/.ivy2/.sbt.ivy.lock
