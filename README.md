@@ -101,5 +101,5 @@ credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.or
 
 ```bash
 sbt
-+clean ;+compile ;+test ;+package; +publishSigned ;sonatypeReleaseAll
++clean ;+compile ;+test ;+package; +publishSigned ; sonatypeReleaseAll
 ```
