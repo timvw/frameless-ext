@@ -20,8 +20,18 @@ val userColumn = tds.tc(_.user)
 val dayColumn = tds.tc(_.day)
 ```
 
-We have also added support for aggregate functions on the typed columns,
-as you can see in the following example:
+The available aggregation functions become more discoverable in your IDE as well:
+
+```scala
+val result: TypedDataset[(String, Long, Int)] = tds.
+  .groupBy(e.tds(_.user))
+  .agg(
+    tds.tc(_.day).countDistinct,
+    tds.tc(_.hour).max)
+```
+
+Here is the complete example:
+
 
 ```scala
 case class Event(user: String, year: Int, month: Int, day: Int, hour: Int)
@@ -89,7 +99,7 @@ sbt +clean; +cleanFiles; +compile; +test
 Install a snapshot in your local maven repository:
 
 ```bash
-sbt publishM2
+sbt +publishM2
 ```
 
 ## Release
@@ -106,8 +116,6 @@ Leveraging the [ci-release](https://github.com/olafurpg/sbt-ci-release) plugin:
 sbt ci-release
 ```
 
-[travis-ci](https://travis-ci.org/github/timvw/frameless-ext) is configured to perform a release by pushing a tag, see our [.travis.yml](.travis.yml):
-
 Find the most recent release:
 
 ```bash
@@ -119,7 +127,7 @@ git ls-remote --tags $REPO | \
   tail -n1
 ```
 
-Push the version to release
+Push a new tag to trigger a release via [travis-ci](https://travis-ci.org/github/timvw/frameless-ext):
 
 ```bash
 v=v1.0.5
