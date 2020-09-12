@@ -1,6 +1,6 @@
 package be.icteam.frameless
 
-import frameless._
+import frameless.{CatalystOrdered, _}
 
 package object syntax {
 
@@ -8,7 +8,7 @@ package object syntax {
     def tc[A](x: Function1[T, A]): TypedColumn[T, A] = macro TypedColumnMacro.impl[T, A]
   }
 
-  implicit class TypedColumnOps[T, A: CatalystOrdered : CatalystVariance](tc: TypedColumn[T, A]) {
+  implicit class TypedColumnOps[T, A](tc: TypedColumn[T, A]) {
 
     def count: TypedAggregate[T, Long] = {
       frameless.functions.aggregate.count(tc)
@@ -50,11 +50,11 @@ package object syntax {
       frameless.functions.aggregate.avg[A, T, Out](tc)
     }
 
-    def variance: TypedAggregate[T, Double] = {
+    def variance(implicit variance: CatalystVariance[A]): TypedAggregate[T, Double] = {
       frameless.functions.aggregate.variance[A, T](tc)
     }
 
-    def stddev: TypedAggregate[T, Double] = {
+    def stddev(implicit variance: CatalystVariance[A]): TypedAggregate[T, Double] = {
       frameless.functions.aggregate.stddev[A, T](tc)
     }
 
@@ -66,11 +66,11 @@ package object syntax {
       frameless.functions.aggregate.stddevSamp[A, T](tc)
     }
 
-    def max: TypedAggregate[T, A] = {
+    def max(implicit ordered: CatalystOrdered[A]): TypedAggregate[T, A] = {
       frameless.functions.aggregate.max(tc)
     }
 
-    def min: TypedAggregate[T, A] = {
+    def min(implicit ordered: CatalystOrdered[A]): TypedAggregate[T, A] = {
       frameless.functions.aggregate.min(tc)
     }
 
