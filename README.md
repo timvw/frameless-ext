@@ -1,6 +1,6 @@
 # Frameless-ext
 
-This library contains additional syntax for [Frameless]()https://github.com/typelevel/frameless.
+This library contains additional syntax for [Frameless](https://github.com/typelevel/frameless).
 
 ## Usage
 
@@ -58,7 +58,7 @@ object Demo {
       Event("tim", 2020, 9, 1, 3),
       Event("tim", 2020, 9, 2, 5),
       Event("tim", 2020, 9, 2, 3),
-      Event("narayana", 2020, 9, 1, 2)
+      Event("tiebe", 2020, 9, 1, 2)
     ))
 
     val e = TypedDataset.create(events)
@@ -70,6 +70,7 @@ object Demo {
         e.tc(_.day).countDistinct,
         e.tc(_.hour).max,
         e.tc(_.year).sum)
+
     val job = result.show(10, false)
     job.run()
 
@@ -91,7 +92,7 @@ Install a snapshot in your local maven repository:
 sbt publishM2
 ```
 
-Release:
+## Release
 
 Set the following environment variables:
 - PGP_PASSPHRASE
@@ -99,13 +100,13 @@ Set the following environment variables:
 - SONATYPE_USERNAME
 - SONATYPE_PASSWORD
 
-Leveraging 
+Leveraging the [ci-release](https://github.com/olafurpg/sbt-ci-release) plugin:
 
 ```bash
 sbt ci-release
 ```
 
-travis-ci can be triggered to perform a release by pushing a tag:
+[travis-ci](https://travis-ci.org/github/timvw/frameless-ext) is configured to perform a release by pushing a tag, see our [.travis.yml](.travis.yml):
 
 Find the most recent release:
 
