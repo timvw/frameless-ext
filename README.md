@@ -2,7 +2,16 @@
 
 This library contains additional syntax for [Frameless](https://github.com/typelevel/frameless).
 
+[![Build Status](https://api.travis-ci.org/timvw/frameless-ext.png?branch=master)](https://travis-ci.org/timvw/frameless-ext)
+[![Maven Central](https://img.shields.io/maven-central/v/be.icteam/frameless-ext_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/be.icteam/frameless-exit_2.11)
+
 ## Usage
+
+Import the dependency:
+
+```scala
+libraryDependencies += "be.icteam" %% "frameless_ext" % "1.0.6"
+```
 
 Enable the additional syntax with the following import statement:
 
