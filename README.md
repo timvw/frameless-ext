@@ -82,23 +82,43 @@ object Demo {
 Compile and test:
 
 ```bash
-sbt -Dsbt.log.noformat=true +clean +cleanFiles +compile +test
+sbt +clean; +cleanFiles; +compile; +test
 ```
 
-Creating a development version:
+Install a snapshot in your local maven repository:
 
 ```bash
 sbt publishM2
 ```
 
-## Release
+Release:
+
+Set the following environment variables:
+- PGP_PASSPHRASE
+- PGP_SECRET
+- SONATYPE_USERNAME
+- SONATYPE_PASSWORD
+
+Leveraging 
 
 ```bash
-sbt
-+clean ;+compile ;+test ;ci-release
+sbt ci-release
 ```
 
-Via travis-ci:
+travis-ci can be triggered to perform a release by pushing a tag:
+
+Find the most recent release:
+
+```bash
+git ls-remote --tags $REPO | \
+  awk -F"/" '{print $3}' | \
+  grep '^v[0-9]*\.[0-9]*\.[0-9]*' | \
+  grep -v {} | \
+  sort --version-sort | \
+  tail -n1
+```
+
+Push the version to release
 
 ```bash
 v=v1.0.5

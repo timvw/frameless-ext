@@ -7,14 +7,7 @@ ThisBuild / name := "frameless-ext"
 
 ThisBuild / homepage := Some(url("https://github.com/timvw/frameless-ext"))
 ThisBuild / licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
-ThisBuild / developers := List(
-    Developer(
-      "timvw",
-      "Tim Van Wassenhove",
-      "tim@timvw.be",
-      url("https://timvw.be")
-    )
-  )
+ThisBuild / developers := List(Developer("timvw", "Tim Van Wassenhove", "tim@timvw.be", url("https://timvw.be")))
 
 ThisBuild / javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
