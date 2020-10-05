@@ -29,12 +29,15 @@ ThisBuild / libraryDependencies ++= List(
 val framelessVersion = "0.9.0"
 ThisBuild / libraryDependencies ++= List(
   "org.typelevel" %% "frameless-dataset" % framelessVersion,
-  "org.typelevel" %% "frameless-ml"      % framelessVersion,
-  "org.typelevel" %% "frameless-cats"    % framelessVersion
+  "org.typelevel" %% "frameless-ml" % framelessVersion,
+  "org.typelevel" %% "frameless-cats" % framelessVersion
 )
 
 ThisBuild / scalacOptions ++= Seq(
   "-language:experimental.macros"
 )
 
-  
+val scalaTestVersion = "3.1.2"
+ThisBuild / libraryDependencies ++= List(
+  "org.scalatest" %% "scalatest" % scalaTestVersion % Test
+)
