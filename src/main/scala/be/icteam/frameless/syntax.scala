@@ -34,11 +34,11 @@ package object syntax {
       frameless.functions.aggregate.collectSet[T, A](tc)
     }
 
-    def sum[Out](implicit summable: CatalystSummable[A, Out], oencoder: TypedEncoder[Out]): TypedAggregate[T, Out] = {
+    def sum[Out](implicit summable: CatalystSummable[A, Out], aencoder: TypedEncoder[A], oencoder: TypedEncoder[Out]): TypedAggregate[T, Out] = {
       frameless.functions.aggregate.sum[A, T, Out](tc)
     }
 
-    def sumDistinct[Out](implicit summable: CatalystSummable[A, Out], oencoder: TypedEncoder[Out]): TypedAggregate[T, Out] = {
+    def sumDistinct[Out](implicit summable: CatalystSummable[A, Out], aencoder: TypedEncoder[A], oencoder: TypedEncoder[Out]): TypedAggregate[T, Out] = {
       frameless.functions.aggregate.sumDistinct[A, T, Out](tc)
     }
 

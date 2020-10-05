@@ -11,7 +11,7 @@ ThisBuild / developers := List(Developer("timvw", "Tim Van Wassenhove", "tim@tim
 
 ThisBuild / javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
-ThisBuild / scalaVersion := scala211
+ThisBuild / scalaVersion := scala212
 
 ThisBuild / crossScalaVersions := supportedScalaVersions
 
@@ -19,18 +19,18 @@ ThisBuild / libraryDependencies ++= List(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value
 )
 
-val sparkVersion = "2.4.6"
+val sparkVersion = "3.0.0"
 ThisBuild / libraryDependencies ++= List(
-    "org.apache.spark" %% "spark-sql" % sparkVersion,
-    "org.apache.spark" %% "spark-hive" % sparkVersion,
-    "org.apache.spark" %% "spark-yarn" % sparkVersion
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "org.apache.spark" %% "spark-hive" % sparkVersion,
+  "org.apache.spark" %% "spark-yarn" % sparkVersion
 )
 
-val framelessVersion = "0.8.0"
+val framelessVersion = "0.9.0"
 ThisBuild / libraryDependencies ++= List(
   "org.typelevel" %% "frameless-dataset" % framelessVersion,
   "org.typelevel" %% "frameless-ml"      % framelessVersion,
-  "org.typelevel" %% "frameless-cats"    % framelessVersion  
+  "org.typelevel" %% "frameless-cats"    % framelessVersion
 )
 
 ThisBuild / scalacOptions ++= Seq(
