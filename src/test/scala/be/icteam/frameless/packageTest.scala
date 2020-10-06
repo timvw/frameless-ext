@@ -21,7 +21,7 @@ class packageTest extends AnyFunSuite {
 
     val td: TypedDataset[TestClass1] = TypedDataset.create(numbers)
 
-      assert( td.filter(td.tc(_.b.x) > 2).dataset.collect().length == 8)
+      assert( td.filter(td.tc(_.b.x) > 2).dataset.collect().length == 7)
   }
 }
 
