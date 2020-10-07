@@ -16,3 +16,7 @@ derby.log
 .settings
 .vscode
 project/target
+.metals
+project/metals.sbt
+project/project
+.bloop
