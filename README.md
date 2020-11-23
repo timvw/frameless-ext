@@ -2,7 +2,7 @@
 
 This library contains additional syntax for [Frameless](https://github.com/typelevel/frameless).
 
-[![Build Status](https://github.com/timvw/frameless-ext/workflows/ci/badge.svg)](https://github.com/timvw/frameless-ext/workflows/ci)
+[![Build Status](https://github.com/timvw/frameless-ext/workflows/workflow/badge.svg)](https://github.com/timvw/frameless-ext/workflows/workflow)
 [![Maven Central](https://img.shields.io/maven-central/v/be.icteam/frameless-ext_2.12.svg)](https://maven-badges.herokuapp.com/maven-central/be.icteam/frameless-ext_2.12)
 
 ## Usage
